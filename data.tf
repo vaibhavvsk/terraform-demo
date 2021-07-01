@@ -16,3 +16,13 @@ output "Ubuntu_AMI" {
   description = "value"
 }
 
+data "aws_region" "current" {}
+
+data "aws_ec2_managed_prefix_list" "prefix_list" {
+  name = "com.amazonaws.${data.aws_region.current.name}.dynamodb"
+}
+
+output "out_prefix_list" {
+  value = data.aws_ec2_managed_prefix_list.prefix_list.id
+}
+

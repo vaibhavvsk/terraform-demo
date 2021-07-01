@@ -6,3 +6,7 @@ variable "ami" {
   type    = string
   default = "ami-0ad704c126371a549"
 }
+variable "nodetags" {
+  type    = list(any)
+  default = ["Node1", "Node2"]
+}
