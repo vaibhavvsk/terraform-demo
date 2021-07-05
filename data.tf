@@ -26,3 +26,13 @@ output "out_prefix_list" {
   value = data.aws_ec2_managed_prefix_list.prefix_list.id
 }
 
+data "aws_security_groups" "default" {
+  filter {
+    name   = "group-name"
+    values = ["default"]
+  }
+}
+
+output "default_security_groupID" {
+  value = data.aws_security_groups.default.ids
+}
