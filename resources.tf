@@ -50,7 +50,8 @@ resource "aws_instance" "myec2" {
     }
     inline = [
       "sudo apt update",
-      "sudo ls -ltr"
+      "echo \"Installing AWS Inspector Agent\"",
+      "wget https://inspector-agent.amazonaws.com/linux/latest/install && sudo bash install",
     ]
   }
 
